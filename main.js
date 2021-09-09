@@ -1,8 +1,9 @@
+console.log("No.servicios: 101,102,103,104,105,106,107,108"  );
 function loadJSON(numero,callback) {   
 
     var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-     xobj.open('GET', 'http://localhost:4000/json/'+numero, true); // Replace 'my_data' with the path to your file
+     xobj.open('GET', 'https://nodejs-comision.herokuapp.com/json/'+numero, true); // Replace 'my_data' with the path to your file
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
             // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
@@ -53,7 +54,7 @@ function abonar() {
 	}
 	console.log( JSON.stringify( data ));
         var http = new XMLHttpRequest();
-        http.open("Post", "http://localhost:4000/json/create");
+        http.open("Post", "https://nodejs-comision.herokuapp.com/json/create");
         http.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
         http.send( JSON.stringify( data ));
         document.getElementById("Adeudo").value = numero;
@@ -84,4 +85,5 @@ function abrirmodal(){
     document.getElementById('suma').value = 0;
     document.getElementById('modalp').style.display='block';
   }
+
 }
